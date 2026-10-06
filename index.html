@@ -1897,19 +1897,27 @@
     <div class="city-chapter"><i></i><span>the city chapter ends</span><strong>DELHI × MUMBAI → CORBETT</strong><span>the celebration begins</span><i></i></div>
 
     <section class="section event" id="haldi">
-      <video class="event-video" muted loop playsinline preload="none" loading="lazy" data-src="assets/events/haldi.mp4" aria-hidden="true"></video>
+      <video class="event-video" muted playsinline loop preload="metadata" aria-hidden="true">
+        <source src="assets/events/haldi.mp4" type="video/mp4">
+      </video>
     </section>
 
     <section class="section event" id="engagement">
-      <video class="event-video" muted loop playsinline preload="none" loading="lazy" data-src="assets/events/engagement.mp4" aria-hidden="true"></video>
+      <video class="event-video" muted playsinline loop preload="metadata" aria-hidden="true">
+        <source src="assets/events/engagement.mp4" type="video/mp4">
+      </video>
     </section>
 
     <section class="section event" id="wedding">
-      <video class="event-video" muted loop playsinline preload="none" loading="lazy" data-src="assets/events/wedding.mp4" aria-hidden="true"></video>
+      <video class="event-video" muted playsinline loop preload="metadata" aria-hidden="true">
+        <source src="assets/events/wedding.mp4" type="video/mp4">
+      </video>
     </section>
 
     <section class="section event" id="reception">
-      <video class="event-video" muted loop playsinline preload="none" loading="lazy" data-src="assets/events/reception.mp4" aria-hidden="true"></video>
+      <video class="event-video" muted playsinline loop preload="metadata" aria-hidden="true">
+        <source src="assets/events/reception.mp4" type="video/mp4">
+      </video>
     </section>
 
 
@@ -3034,8 +3042,6 @@
     }
 
 
-    startMusic();
-
 
     /* =====================================================
        INTRO VIDEO / OPEN FLOW
@@ -3349,68 +3355,42 @@
 
 
 <script>
-/* Event videos: lazy-load near the viewport, then autoplay only while visible. */
+/* Event videos: simple, reliable viewport autoplay. */
 (function () {
   const eventVideos = document.querySelectorAll('.event-video');
   if (!eventVideos.length) return;
 
-  eventVideos.forEach(video => {
+  eventVideos.forEach((video) => {
     video.muted = true;
     video.defaultMuted = true;
-    video.setAttribute('muted', '');
-    video.setAttribute('playsinline', '');
-    video.setAttribute('loop', '');
-    video.preload = 'none';
+    video.playsInline = true;
+    video.loop = true;
   });
 
-  const loadVideo = video => {
-    if (video.dataset.loaded === 'true') return;
-    const src = video.dataset.src;
-    if (!src) return;
-    video.src = src;
-    video.dataset.loaded = 'true';
-    video.load();
-  };
-
-  const playVideo = video => {
-    loadVideo(video);
+  const playIfVisible = (video) => {
     video.muted = true;
     const promise = video.play();
-    if (promise && typeof promise.catch === 'function') promise.catch(() => {});
+    if (promise && typeof promise.catch === 'function') {
+      promise.catch(() => {});
+    }
   };
 
-  if ('IntersectionObserver' in window) {
-    /* Start fetching videos well before they become visible, but don't play them yet. */
-    const preloadObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) loadVideo(entry.target);
-      });
-    }, {
-      rootMargin: '150% 0px 150% 0px',
-      threshold: 0
-    });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
 
-    /* Only the video actually on screen plays. */
-    const playObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const video = entry.target;
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
-          playVideo(video);
-        } else if (entry.intersectionRatio < 0.35) {
-          video.pause();
-        }
-      });
-    }, {
-      threshold: [0, 0.35, 0.6]
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
+        playIfVisible(video);
+      } else {
+        video.pause();
+      }
     });
+  }, {
+    threshold: [0, 0.25, 0.5],
+    rootMargin: '10% 0px 10% 0px'
+  });
 
-    eventVideos.forEach(video => {
-      preloadObserver.observe(video);
-      playObserver.observe(video);
-    });
-  } else {
-    eventVideos.forEach(playVideo);
-  }
+  eventVideos.forEach((video) => observer.observe(video));
 })();
 </script>
 
