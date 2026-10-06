@@ -331,452 +331,7 @@
         transform:translateY(7px);
       }
     }
-
-
-    /* =========================================================
-       INTRO TEXT — UPDATED
-       ========================================================= */
-
-    .intro-copy{
-      position:absolute;
-
-      z-index:5;
-
-      left:50%;
-
-      /*
-        MOVED UP:
-        This keeps the parents' names away from the
-        darker palace/building area.
-      */
-      top:44%;
-
-      width:min(92%,780px);
-
-      margin:0;
-
-      padding:26px 20px 30px;
-
-      text-align:center;
-
-      opacity:0;
-
-      visibility:hidden;
-
-      transform:translate(-50%,-50%);
-
-      background:transparent;
-
-      border:0;
-
-      box-shadow:none;
-
-      backdrop-filter:none;
-      -webkit-backdrop-filter:none;
-    }
-
-
-    /*
-      SOFT LIGHT HALO
-      ----------------
-      Not a rectangle.
-      It creates a very subtle warm glow behind the
-      complete text group so clouds/buildings don't
-      interfere with readability.
-    */
-
-    .intro-copy::before{
-      content:"";
-
-      position:absolute;
-
-      z-index:-1;
-
-      left:50%;
-      top:50%;
-
-      width:125%;
-      height:125%;
-
-      transform:translate(-50%,-50%);
-
-      background:
-        radial-gradient(
-          ellipse at center,
-          rgba(255,244,226,.38) 0%,
-          rgba(255,240,220,.24) 32%,
-          rgba(255,235,215,.10) 55%,
-          rgba(255,235,215,0) 75%
-        );
-
-      filter:blur(14px);
-
-      pointer-events:none;
-    }
-
-
-    .intro-copy.is-visible{
-      visibility:visible;
-
-      animation:
-        introCopyIn 1.2s ease forwards;
-    }
-
-
-    /* =========================================================
-       UPPER TEXT
-       ========================================================= */
-
-    .intro-copy .intro-eyebrow{
-
-      font-family:"Cormorant Garamond",serif;
-
-      font-size:clamp(.92rem,2.35vw,1.2rem);
-
-      /*
-        BOLDER
-      */
-      font-weight:600;
-
-      letter-spacing:.105em;
-
-      text-transform:uppercase;
-
-      margin-bottom:14px;
-
-      line-height:1.42;
-
-      color:#553a32;
-
-      text-shadow:
-        0 0 2px rgba(255,249,237,1),
-        0 0 7px rgba(255,249,237,.95),
-        0 1px 1px rgba(255,255,255,.8),
-        0 2px 5px rgba(42,25,19,.45);
-    }
-
-
-    /* =========================================================
-       REQUEST TEXT
-       ========================================================= */
-
-    .intro-copy .intro-request{
-
-      font-family:"Cormorant Garamond",serif;
-
-      font-size:clamp(.88rem,2.25vw,1.14rem);
-
-      /*
-        BOLDER
-      */
-      font-weight:600;
-
-      letter-spacing:.085em;
-
-      line-height:1.5;
-
-      margin-bottom:20px;
-
-      color:#51372f;
-
-      text-shadow:
-        0 0 2px rgba(255,249,237,1),
-        0 0 8px rgba(255,249,237,.95),
-        0 1px 1px rgba(255,255,255,.75),
-        0 2px 5px rgba(42,25,19,.42);
-    }
-
-
-    /* =========================================================
-       BRIDE + GROOM
-       ========================================================= */
-
-    .intro-copy .intro-bride,
-    .intro-copy .intro-groom{
-
-      font-family:Italianno,cursive;
-
-      font-size:clamp(4.2rem,15.5vw,8.7rem);
-
-      line-height:.80;
-
-      color:#fff3df;
-
-      /*
-        Stronger dimensional champagne effect.
-      */
-      text-shadow:
-        0 1px 1px rgba(255,255,255,.95),
-        0 2px 2px rgba(255,255,255,.45),
-        0 3px 4px rgba(65,38,28,.82),
-        0 6px 14px rgba(45,25,18,.50);
-    }
-
-
-    /* =========================================================
-       WITH
-       ========================================================= */
-
-    .intro-copy .intro-with{
-
-      font-family:"Cormorant Garamond",serif;
-
-      font-size:clamp(1.15rem,3vw,1.7rem);
-
-      /*
-        BOLDER
-      */
-      font-weight:600;
-
-      letter-spacing:.24em;
-
-      margin:16px 0;
-
-      color:#553a32;
-
-      text-shadow:
-        0 0 3px rgba(255,249,237,1),
-        0 0 8px rgba(255,249,237,.95),
-        0 1px 1px rgba(255,255,255,.75),
-        0 2px 5px rgba(42,25,19,.42);
-    }
-
-
-    /* =========================================================
-       GROOM'S PARENTS
-       ========================================================= */
-
-    .intro-copy .intro-parents{
-
-      font-family:"Cormorant Garamond",serif;
-
-      font-size:clamp(.9rem,2.25vw,1.12rem);
-
-      /*
-        IMPORTANT:
-        The parents are now LIGHT rather than dark,
-        because this section of the video contains
-        the darker palace.
-      */
-      color:#fff3df;
-
-      /*
-        BOLDER
-      */
-      font-weight:600;
-
-      line-height:1.48;
-
-      letter-spacing:.105em;
-
-      margin-top:22px;
-
-      text-shadow:
-        0 0 2px rgba(72,40,27,.95),
-        0 0 5px rgba(72,40,27,.90),
-        0 2px 5px rgba(35,20,14,.75),
-        0 3px 9px rgba(35,20,14,.50);
-    }
-
-
-    @keyframes introCopyIn{
-
-      from{
-        opacity:0;
-
-        transform:
-          translate(-50%,-50%)
-          translateY(10px);
-      }
-
-      to{
-        opacity:1;
-
-        transform:
-          translate(-50%,-50%)
-          translateY(0);
-      }
-
-    }
-
-
-    /* =========================================================
-       MOBILE INTRO
-       ========================================================= */
-
-    @media (max-width:600px){
-
-      .intro-copy{
-
-        /*
-          Slightly higher on mobile.
-        */
-        top:43%;
-
-        width:94%;
-
-        padding:
-          22px
-          10px
-          25px;
-      }
-
-
-      .intro-copy::before{
-
-        width:135%;
-        height:135%;
-
-        filter:blur(15px);
-
-        background:
-          radial-gradient(
-            ellipse at center,
-            rgba(255,244,226,.42) 0%,
-            rgba(255,240,220,.25) 34%,
-            rgba(255,235,215,.09) 58%,
-            rgba(255,235,215,0) 78%
-          );
-      }
-
-
-      .intro-copy .intro-eyebrow{
-
-        font-size:.83rem;
-
-        font-weight:600;
-
-        letter-spacing:.085em;
-
-        line-height:1.4;
-
-        margin-bottom:12px;
-      }
-
-
-      .intro-copy .intro-request{
-
-        font-size:.80rem;
-
-        font-weight:600;
-
-        line-height:1.48;
-
-        letter-spacing:.065em;
-
-        margin-bottom:18px;
-      }
-
-
-      .intro-copy .intro-bride,
-      .intro-copy .intro-groom{
-
-        /*
-          Slightly smaller than before so that
-          parents have enough breathing room.
-        */
-        font-size:clamp(
-          3.9rem,
-          16.5vw,
-          6.3rem
-        );
-
-        line-height:.80;
-      }
-
-
-      .intro-copy .intro-with{
-
-        font-size:1.22rem;
-
-        font-weight:600;
-
-        letter-spacing:.22em;
-
-        margin:14px 0;
-      }
-
-
-      .intro-copy .intro-parents{
-
-        font-size:.80rem;
-
-        font-weight:600;
-
-        line-height:1.45;
-
-        letter-spacing:.075em;
-
-        margin-top:20px;
-
-        /*
-          Extra readability specifically for
-          the building area.
-        */
-        text-shadow:
-          0 0 2px rgba(255,247,232,.75),
-          0 0 4px rgba(48,27,19,.95),
-          0 2px 5px rgba(30,17,12,.85),
-          0 3px 9px rgba(30,17,12,.55);
-      }
-
-    }
-
-
-    @media (max-width:380px){
-
-      .intro-copy{
-
-        top:41.5%;
-
-      }
-
-      .intro-copy .intro-bride,
-      .intro-copy .intro-groom{
-
-        font-size:3.75rem;
-
-      }
-
-      .intro-copy .intro-eyebrow{
-
-        font-size:.76rem;
-
-      }
-
-      .intro-copy .intro-request{
-
-        font-size:.74rem;
-
-      }
-
-      .intro-copy .intro-parents{
-
-        font-size:.74rem;
-
-      }
-
-    }
-
-
-    @media (prefers-reduced-motion:reduce){
-
-      .intro-copy{
-
-        visibility:visible;
-
-        animation:none;
-
-        opacity:1;
-
-        transform:
-          translate(-50%,-50%);
-      }
-
-    }
-
-
-    .hero-inner{
+.hero-inner{
       max-width:950px;
     }
 
@@ -1203,9 +758,14 @@
     .event-card .pin{
       margin-right:6px;
     }
-
-    .event-art{
-      display:none;
+    .event-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      z-index:-3;
     }
 
     .event-nav{
@@ -1689,17 +1249,7 @@
       .full{
         grid-column:auto;
       }
-
-      .event-art{
-
-        width:55vw;
-
-        right:-3%;
-
-        opacity:.9;
-      }
-
-      .event-nav{
+.event-nav{
 
         max-width:
           calc(100vw - 16px);
@@ -1719,15 +1269,7 @@
 
 
     @media(max-width:480px){
-
-      .event-art{
-
-        width:58vw;
-
-        opacity:.72;
-      }
-
-      .gallery{
+.gallery{
         gap:9px;
       }
 
@@ -1810,7 +1352,8 @@
 
 
     <!-- =====================================================
-         HERO
+         HERO / INTRO VIDEO
+         All invitation text is part of the MP4 itself.
          ===================================================== -->
 
     <section
@@ -1827,20 +1370,15 @@
         preload="auto"
         aria-hidden="true"
       >
-
         <source
           src="assets/intro-video.MP4"
           type="video/mp4"
         >
-
       </video>
-
 
       <div class="intro-video-overlay"></div>
 
-
-      <!-- OPEN BUTTON -->
-
+      <!-- TAP TO OPEN -->
       <div
         class="intro-open"
         id="introOpen"
@@ -1848,22 +1386,17 @@
         tabindex="0"
         aria-label="Tap anywhere to open invitation"
       >
-
         <div class="intro-open-pill">
           Tap Anywhere to Open
         </div>
-
       </div>
 
-
       <!-- SCROLL INDICATOR -->
-
       <div
         class="intro-scroll"
         id="introScroll"
         aria-hidden="true"
       >
-
         <div class="intro-scroll-label">
           Scroll
         </div>
@@ -1871,63 +1404,6 @@
         <div class="intro-scroll-arrow">
           ⌄
         </div>
-
-      </div>
-
-
-      <!-- =================================================
-           INTRO TEXT
-           ================================================= -->
-
-      <div
-        class="intro-copy"
-        aria-label="Wedding invitation"
-      >
-
-        <div class="intro-eyebrow">
-
-          MR. ANURAG CHOUBEY
-          <br>
-
-          (H/O LT. MRS. ANJU CHOUBEY)
-
-        </div>
-
-
-        <div class="intro-request">
-
-          REQUEST YOUR GRACIOUS PRESENCE FOR
-          <br>
-
-          THE WEDDING CELEBRATION OF THEIR DAUGHTER
-
-        </div>
-
-
-        <div class="intro-bride">
-          Dr. Shini
-        </div>
-
-
-        <div class="intro-with">
-          WITH
-        </div>
-
-
-        <div class="intro-groom">
-          Dr. Piyush
-        </div>
-
-
-        <div class="intro-parents">
-
-          S/O DR. USHA
-          <br>
-
-          &amp; DR. DINESH SHARMA
-
-        </div>
-
       </div>
 
     </section>
@@ -2114,22 +1590,22 @@
       id="mehendi"
     >
 
-      <div
-        class="bg"
-        style="
-          background-image:
-          url('assets/01-mehendi-bg.JPG')
-        "
-      ></div>
+      <video
+        class="event-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source
+          src="assets/01-mehendi.MP4"
+          type="video/mp4"
+        >
+      </video>
 
       <div class="wash"></div>
-
-      <img
-        class="event-art"
-        src="assets/mehendi-couple.png"
-        alt=""
-        onerror="this.style.display='none'"
-      >
 
     </section>
 
@@ -2139,22 +1615,22 @@
       id="sangeet"
     >
 
-      <div
-        class="bg"
-        style="
-          background-image:
-          url('assets/03-sangeet-bg.JPG')
-        "
-      ></div>
+      <video
+        class="event-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source
+          src="assets/03-sangeet.MP4"
+          type="video/mp4"
+        >
+      </video>
 
       <div class="wash"></div>
-
-      <img
-        class="event-art"
-        src="assets/sangeet-couple.png"
-        alt=""
-        onerror="this.style.display='none'"
-      >
 
     </section>
 
@@ -2164,22 +1640,22 @@
       id="haldi"
     >
 
-      <div
-        class="bg"
-        style="
-          background-image:
-          url('assets/06-haldi-bg.PNG')
-        "
-      ></div>
+      <video
+        class="event-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source
+          src="assets/06-haldi.MP4"
+          type="video/mp4"
+        >
+      </video>
 
       <div class="wash"></div>
-
-      <img
-        class="event-art"
-        src="assets/haldi-couple.png"
-        alt=""
-        onerror="this.style.display='none'"
-      >
 
     </section>
 
@@ -2189,22 +1665,22 @@
       id="wedding"
     >
 
-      <div
-        class="bg"
-        style="
-          background-image:
-          url('assets/04-wedding-bg.PNG')
-        "
-      ></div>
+      <video
+        class="event-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source
+          src="assets/04-wedding.MP4"
+          type="video/mp4"
+        >
+      </video>
 
       <div class="wash"></div>
-
-      <img
-        class="event-art"
-        src="assets/wedding-couple.png"
-        alt=""
-        onerror="this.style.display='none'"
-      >
 
     </section>
 
@@ -3292,7 +2768,8 @@
 
 
     /* =====================================================
-       INTRO VIDEO / TEXT REVEAL
+       INTRO VIDEO / OPEN FLOW
+       The intro MP4 contains all invitation text.
        ===================================================== */
 
     const introVideo =
@@ -3300,32 +2777,17 @@
         "introVideo"
       );
 
-
-    const introCopy =
-      document.querySelector(
-        ".intro-copy"
-      );
-
-
     const introOpen =
       document.getElementById(
         "introOpen"
       );
-
 
     const introScroll =
       document.getElementById(
         "introScroll"
       );
 
-
-    let introRevealed =
-      false;
-
-
-    let introFinished =
-      false;
-
+    let introFinished = false;
 
     function openInvitation(){
 
@@ -3337,9 +2799,7 @@
 
       }
 
-
       startMusic();
-
 
       if(
         introVideo &&
@@ -3354,12 +2814,10 @@
 
     }
 
-
     introOpen?.addEventListener(
       "pointerdown",
       openInvitation
     );
-
 
     introOpen?.addEventListener(
       "keydown",
@@ -3379,54 +2837,15 @@
       }
     );
 
-
-    function revealIntroCopy(){
-
-      if(introRevealed){
-        return;
-      }
-
-
-      introRevealed =
-        true;
-
-
-      introCopy.classList.add(
-        "is-visible"
-      );
-
-    }
-
-
     /*
-      Text appears after 7 seconds.
+      When the intro video finishes, show the existing
+      Scroll + downward arrow indicator.
     */
-
-    introVideo.addEventListener(
-      "timeupdate",
-      () => {
-
-        if(
-          introVideo.currentTime >= 7.0
-        ){
-
-          revealIntroCopy();
-
-        }
-
-      }
-    );
-
-
-    introVideo.addEventListener(
+    introVideo?.addEventListener(
       "ended",
       () => {
 
-        revealIntroCopy();
-
-        introFinished =
-          true;
-
+        introFinished = true;
 
         introScroll?.classList.add(
           "show"
@@ -3435,38 +2854,54 @@
       }
     );
 
-
-    introVideo.addEventListener(
+    introVideo?.addEventListener(
       "error",
       () => {
 
+        /*
+          If the MP4 cannot load, still leave the page usable.
+          The scroll indicator appears after a short delay.
+        */
         setTimeout(
           () => {
-
-            revealIntroCopy();
 
             introScroll?.classList.add(
               "show"
             );
 
           },
-          7000
+          2500
         );
 
       }
     );
 
 
-    if(
-      window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches
-    ){
+    /* =====================================================
+       EVENT VIDEOS
+       Keep every event slide as MP4-only, muted, inline video.
+       ===================================================== */
 
-      revealIntroCopy();
+    const eventVideos =
+      document.querySelectorAll(
+        ".event-video"
+      );
+
+    function playEventVideos(){
+
+      eventVideos.forEach(
+        video => {
+
+          video.play().catch(
+            () => {}
+          );
+
+        }
+      );
 
     }
 
+    playEventVideos();
 
     /* =====================================================
        FIRST INTERACTION / MUSIC
