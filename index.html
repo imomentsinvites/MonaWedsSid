@@ -905,6 +905,15 @@
       justify-content:center;
     }
 
+    /* Reception venue: keep the Starline, Delhi box and Maps button centered */
+    #receptionVenue .card{
+      text-align:center;
+    }
+
+    #receptionVenue .actions{
+      justify-content:center;
+    }
+
     .map{
 
       min-height:360px;
@@ -1888,27 +1897,19 @@
     <div class="city-chapter"><i></i><span>the city chapter ends</span><strong>DELHI × MUMBAI → CORBETT</strong><span>the celebration begins</span><i></i></div>
 
     <section class="section event" id="haldi">
-      <video class="event-video" muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="assets/events/haldi.mp4" type="video/mp4">
-      </video>
+      <video class="event-video" muted loop playsinline preload="none" loading="lazy" data-src="assets/events/haldi.mp4" aria-hidden="true"></video>
     </section>
 
     <section class="section event" id="engagement">
-      <video class="event-video" muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="assets/events/engagement.mp4" type="video/mp4">
-      </video>
+      <video class="event-video" muted loop playsinline preload="none" loading="lazy" data-src="assets/events/engagement.mp4" aria-hidden="true"></video>
     </section>
 
     <section class="section event" id="wedding">
-      <video class="event-video" muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="assets/events/wedding.mp4" type="video/mp4">
-      </video>
+      <video class="event-video" muted loop playsinline preload="none" loading="lazy" data-src="assets/events/wedding.mp4" aria-hidden="true"></video>
     </section>
 
     <section class="section event" id="reception">
-      <video class="event-video" muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="assets/events/reception.mp4" type="video/mp4">
-      </video>
+      <video class="event-video" muted loop playsinline preload="none" loading="lazy" data-src="assets/events/reception.mp4" aria-hidden="true"></video>
     </section>
 
 
@@ -3348,7 +3349,7 @@
 
 
 <script>
-/* Event videos: autoplay only when the video is visible, pause when it leaves. */
+/* Event videos: lazy-load near the viewport, then autoplay only while visible. */
 (function () {
   const eventVideos = document.querySelectorAll('.event-video');
   if (!eventVideos.length) return;
@@ -3359,27 +3360,43 @@
     video.setAttribute('muted', '');
     video.setAttribute('playsinline', '');
     video.setAttribute('loop', '');
-    video.setAttribute('preload', 'metadata');
+    video.preload = 'none';
   });
 
+  const loadVideo = video => {
+    if (video.dataset.loaded === 'true') return;
+    const src = video.dataset.src;
+    if (!src) return;
+    video.src = src;
+    video.dataset.loaded = 'true';
+    video.load();
+  };
+
   const playVideo = video => {
+    loadVideo(video);
     video.muted = true;
     const promise = video.play();
-    if (promise && typeof promise.catch === 'function') {
-      promise.catch(() => {
-        // Autoplay can still be blocked by browser/user settings.
-        // The video remains available for normal user playback.
-      });
-    }
+    if (promise && typeof promise.catch === 'function') promise.catch(() => {});
   };
 
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
+    /* Start fetching videos well before they become visible, but don't play them yet. */
+    const preloadObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) loadVideo(entry.target);
+      });
+    }, {
+      rootMargin: '150% 0px 150% 0px',
+      threshold: 0
+    });
+
+    /* Only the video actually on screen plays. */
+    const playObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         const video = entry.target;
         if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
           playVideo(video);
-        } else {
+        } else if (entry.intersectionRatio < 0.35) {
           video.pause();
         }
       });
@@ -3387,9 +3404,11 @@
       threshold: [0, 0.35, 0.6]
     });
 
-    eventVideos.forEach(video => observer.observe(video));
+    eventVideos.forEach(video => {
+      preloadObserver.observe(video);
+      playObserver.observe(video);
+    });
   } else {
-    // Fallback for older browsers.
     eventVideos.forEach(playVideo);
   }
 })();
