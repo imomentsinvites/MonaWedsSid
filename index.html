@@ -1278,7 +1278,8 @@
 
   
     .event{height:100svh;min-height:100svh;padding:0;background:#090707;color:#fff;}
-    .event-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;display:block;background:#090707;}
+    .event-video,
+    .event-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;display:block;background:#090707;}
     .story-section{background:linear-gradient(135deg,#fff8f2,#f4e8e1 48%,#eee0dc);text-align:center;}
     .story-content{max-width:850px;}
     .story-copy{max-width:760px;margin:28px auto 0;font-family:"Cormorant Garamond",serif;font-size:clamp(1.35rem,2.5vw,1.8rem);line-height:1.6;}
@@ -1574,7 +1575,8 @@
 
     /* Event sections remain intentionally untouched: video only. */
     .event{padding:0 !important;background:#090707 !important;}
-    .event .event-video{z-index:0;}
+    .event .event-video,
+    .event .event-image{z-index:0;}
 
     @media(max-width:700px){
       .city-signature{top:16px;font-size:.48rem;gap:8px;letter-spacing:.18em}
@@ -1897,27 +1899,19 @@
     <div class="city-chapter"><i></i><span>the city chapter ends</span><strong>DELHI × MUMBAI → CORBETT</strong><span>the celebration begins</span><i></i></div>
 
     <section class="section event" id="haldi">
-      <video class="event-video" muted playsinline loop preload="metadata" aria-hidden="true">
-        <source src="assets/events/haldi.mp4" type="video/mp4">
-      </video>
+      <img class="event-image" src="assets/events/haldi.jpg" alt="Haldi" loading="lazy" decoding="async">
     </section>
 
     <section class="section event" id="engagement">
-      <video class="event-video" muted playsinline loop preload="metadata" aria-hidden="true">
-        <source src="assets/events/engagement.mp4" type="video/mp4">
-      </video>
+      <img class="event-image" src="assets/events/engagement.jpg" alt="Engagement" loading="lazy" decoding="async">
     </section>
 
     <section class="section event" id="wedding">
-      <video class="event-video" muted playsinline loop preload="metadata" aria-hidden="true">
-        <source src="assets/events/wedding.mp4" type="video/mp4">
-      </video>
+      <img class="event-image" src="assets/events/wedding.jpg" alt="Wedding" loading="lazy" decoding="async">
     </section>
 
     <section class="section event" id="reception">
-      <video class="event-video" muted playsinline loop preload="metadata" aria-hidden="true">
-        <source src="assets/events/reception.mp4" type="video/mp4">
-      </video>
+      <img class="event-image" src="assets/events/reception.jpg" alt="Reception" loading="lazy" decoding="async">
     </section>
 
 
@@ -3153,29 +3147,7 @@
     );
 
 
-    /* =====================================================
-       EVENT VIDEOS
-       Keep every event slide as MP4-only, muted, inline video.
-       ===================================================== */
-
-    const eventVideos =
-      document.querySelectorAll(
-        ".event-video"
-      );
-
-    function playEventVideos(){
-
-      eventVideos.forEach(
-        video => {
-
-          video.play().catch(
-            () => {}
-          );
-
-        }
-      );
-
-    }
+    /* Event sections use lightweight images for fast, reliable loading. */
 
     /* =====================================================
        FIRST INTERACTION / MUSIC
@@ -3357,41 +3329,7 @@
 <script>
 /* Event videos: simple, reliable viewport autoplay. */
 (function () {
-  const eventVideos = document.querySelectorAll('.event-video');
-  if (!eventVideos.length) return;
-
-  eventVideos.forEach((video) => {
-    video.muted = true;
-    video.defaultMuted = true;
-    video.playsInline = true;
-    video.loop = true;
-  });
-
-  const playIfVisible = (video) => {
-    video.muted = true;
-    const promise = video.play();
-    if (promise && typeof promise.catch === 'function') {
-      promise.catch(() => {});
-    }
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const video = entry.target;
-
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
-        playIfVisible(video);
-      } else {
-        video.pause();
-      }
-    });
-  }, {
-    threshold: [0, 0.25, 0.5],
-    rootMargin: '10% 0px 10% 0px'
-  });
-
-  eventVideos.forEach((video) => observer.observe(video));
-})();
+  // Event MP4 autoplay code removed: event sections now use images.
 </script>
 
 </body>
