@@ -1889,25 +1889,25 @@
     <div class="city-chapter"><i></i><span>the city chapter ends</span><strong>DELHI × MUMBAI → CORBETT</strong><span>the celebration begins</span><i></i></div>
 
     <section class="section event" id="haldi">
-      <video class="event-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <video class="event-video" muted loop playsinline preload="metadata" aria-hidden="true">
         <source src="assets/events/haldi.mp4" type="video/mp4">
       </video>
     </section>
 
     <section class="section event" id="engagement">
-      <video class="event-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <video class="event-video" muted loop playsinline preload="metadata" aria-hidden="true">
         <source src="assets/events/engagement.mp4" type="video/mp4">
       </video>
     </section>
 
     <section class="section event" id="wedding">
-      <video class="event-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <video class="event-video" muted loop playsinline preload="metadata" aria-hidden="true">
         <source src="assets/events/wedding.mp4" type="video/mp4">
       </video>
     </section>
 
     <section class="section event" id="reception">
-      <video class="event-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <video class="event-video" muted loop playsinline preload="metadata" aria-hidden="true">
         <source src="assets/events/reception.mp4" type="video/mp4">
       </video>
     </section>
@@ -3348,6 +3348,55 @@
   })();
 
   </script>
+
+
+<script>
+/* Event videos: autoplay only when the video is visible, pause when it leaves. */
+(function () {
+  const eventVideos = document.querySelectorAll('.event-video');
+  if (!eventVideos.length) return;
+
+  eventVideos.forEach(video => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('loop', '');
+    video.setAttribute('preload', 'metadata');
+  });
+
+  const playVideo = video => {
+    video.muted = true;
+    const promise = video.play();
+    if (promise && typeof promise.catch === 'function') {
+      promise.catch(() => {
+        // Autoplay can still be blocked by browser/user settings.
+        // The video remains available for normal user playback.
+      });
+    }
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+          playVideo(video);
+        } else {
+          video.pause();
+        }
+      });
+    }, {
+      threshold: [0, 0.35, 0.6]
+    });
+
+    eventVideos.forEach(video => observer.observe(video));
+  } else {
+    // Fallback for older browsers.
+    eventVideos.forEach(playVideo);
+  }
+})();
+</script>
 
 </body>
 </html>
