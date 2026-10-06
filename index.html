@@ -1,0 +1,3333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta name="theme-color" content="#fff8f2">
+  <meta
+    name="description"
+    content="Mona & Sid — a Delhi × Mumbai love story, celebrated in Jim Corbett and Delhi."
+  >
+
+  <meta property="og:title" content="Mona & Sid | Delhi × Mumbai Wedding">
+  <meta
+    property="og:description"
+    content="Mona & Sid — a Delhi × Mumbai love story."
+  >
+
+  <title>Mona & Sid | Delhi × Mumbai Wedding</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Italianno&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root{
+      --ink:#3d2926;
+      --muted:#765f59;
+      --paper:#fff8f2;
+      --glass:rgba(255,255,255,.72);
+      --line:rgba(61,41,38,.18);
+      --accent:#a55c3c;
+      --gold:#b78b50;
+      --shadow:0 18px 60px rgba(55,34,25,.15);
+      --radius:28px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+      overscroll-behavior-y:none;
+    }
+
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:"DM Sans",sans-serif;
+      overflow-x:hidden;
+      overscroll-behavior-y:none;
+    }
+
+    button,
+    input,
+    select,
+    textarea{
+      font:inherit;
+    }
+
+    a{
+      color:inherit;
+    }
+
+    .section{
+      position:relative;
+      padding:90px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      isolation:isolate;
+      overflow:hidden;
+    }
+
+    .bg{
+      position:absolute;
+      inset:0;
+      z-index:-3;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .wash{
+      position:absolute;
+      inset:0;
+      z-index:-2;
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.06),
+        rgba(255,248,242,.18)
+      );
+      pointer-events:none;
+    }
+
+    .content{
+      width:min(1100px,100%);
+      margin:auto;
+    }
+
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:.72rem;
+      font-weight:600;
+      opacity:.78;
+      margin-bottom:16px;
+    }
+
+    h1,
+    h2,
+    h3,
+    .script{
+      font-family:"Cormorant Garamond",serif;
+      margin:0;
+    }
+
+    h1{
+      font-size:clamp(3.2rem,11vw,8.5rem);
+      line-height:.86;
+      font-weight:500;
+    }
+
+    h2{
+      font-size:clamp(2.7rem,7vw,5.8rem);
+      line-height:.95;
+      font-weight:500;
+    }
+
+    h3{
+      font-size:clamp(1.8rem,4vw,3rem);
+      font-weight:600;
+    }
+
+    .script{
+      font-family:Italianno,cursive;
+      font-weight:400;
+    }
+
+
+    /* =========================================================
+       HERO / INTRO
+       ========================================================= */
+
+    .hero{
+      min-height:100svh;
+      height:100svh;
+      padding:0;
+      text-align:center;
+      color:#4b2b2d;
+    }
+
+    .hero .bg,
+    .hero .wash{
+      display:none;
+    }
+
+    .intro-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      z-index:-2;
+    }
+
+    /*
+      Very subtle overall tone.
+      Keeps the video bright and romantic.
+    */
+    .intro-video-overlay{
+      position:absolute;
+      inset:0;
+      z-index:-1;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(70,45,35,.06),
+          rgba(70,45,35,.10)
+        );
+
+      pointer-events:none;
+    }
+
+
+    /* =========================================================
+       OPEN BUTTON
+       ========================================================= */
+
+    .intro-open{
+      position:absolute;
+      inset:0;
+      z-index:20;
+
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+
+      padding:0 20px 8vh;
+
+      pointer-events:auto;
+
+      opacity:1;
+
+      transition:
+        opacity .7s ease,
+        visibility .7s ease;
+
+      cursor:pointer;
+    }
+
+    .intro-open.hidden{
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+    }
+
+    .intro-open-pill{
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      min-width:250px;
+
+      padding:13px 26px;
+
+      border:1px solid rgba(255,248,238,.55);
+      border-radius:999px;
+
+      background:rgba(35,22,25,.48);
+
+      backdrop-filter:blur(7px);
+      -webkit-backdrop-filter:blur(7px);
+
+      box-shadow:
+        0 8px 28px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.16);
+
+      color:#fff8ed;
+
+      font-family:"Cormorant Garamond",serif;
+
+      font-size:clamp(.95rem,2.7vw,1.2rem);
+
+      font-weight:600;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+
+      text-shadow:
+        0 2px 6px rgba(0,0,0,.35);
+    }
+
+
+    /* =========================================================
+       SCROLL INDICATOR
+       ========================================================= */
+
+    .intro-scroll{
+      position:absolute;
+
+      left:50%;
+      bottom:22px;
+
+      z-index:15;
+
+      display:flex;
+
+      flex-direction:column;
+
+      align-items:center;
+
+      gap:5px;
+
+      color:#fff8ed;
+
+      opacity:0;
+      visibility:hidden;
+
+      transform:translate(-50%,10px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s ease;
+
+      pointer-events:none;
+
+      text-shadow:
+        0 2px 8px rgba(0,0,0,.65);
+    }
+
+    .intro-scroll.show{
+      opacity:1;
+      visibility:visible;
+      transform:translate(-50%,0);
+    }
+
+    .intro-scroll-label{
+      font-family:"DM Sans",sans-serif;
+
+      font-size:.67rem;
+
+      font-weight:700;
+
+      letter-spacing:.28em;
+
+      text-transform:uppercase;
+    }
+
+    .intro-scroll-arrow{
+      font-size:1.5rem;
+      line-height:1;
+
+      animation:introArrow 1.7s ease-in-out infinite;
+    }
+
+    @keyframes introArrow{
+      50%{
+        transform:translateY(7px);
+      }
+    }
+.hero-inner{
+      max-width:950px;
+    }
+
+    .names{
+      letter-spacing:.01em;
+      text-shadow:0 8px 30px rgba(0,0,0,.25);
+    }
+
+    .amp{
+      font-family:Italianno,cursive;
+      font-size:.72em;
+      display:inline-block;
+      margin:.05em .1em;
+    }
+
+    .hero-copy{
+      max-width:620px;
+      margin:30px auto 0;
+
+      font-family:"Cormorant Garamond",serif;
+
+      font-size:clamp(1.2rem,3vw,1.8rem);
+
+      line-height:1.35;
+    }
+
+    .scroll{
+      margin-top:55px;
+
+      display:inline-flex;
+
+      flex-direction:column;
+
+      align-items:center;
+
+      gap:9px;
+
+      border:0;
+
+      background:none;
+
+      color:inherit;
+
+      cursor:pointer;
+
+      letter-spacing:.22em;
+
+      font-size:.68rem;
+    }
+
+    .scroll span:last-child{
+      font-size:1.3rem;
+      animation:bob 1.8s ease-in-out infinite;
+    }
+
+    @keyframes bob{
+
+      50%{
+        transform:translateY(7px);
+      }
+
+    }
+
+
+    /* =========================================================
+       GENERAL
+       ========================================================= */
+
+    .section-title{
+      text-align:center;
+    }
+
+    .ornament{
+      display:flex;
+
+      align-items:center;
+
+      gap:15px;
+
+      justify-content:center;
+
+      margin:25px auto;
+    }
+
+    .ornament:before,
+    .ornament:after{
+      content:"";
+
+      height:1px;
+
+      width:90px;
+
+      background:currentColor;
+
+      opacity:.35;
+    }
+
+    .heart{
+      font-size:1.05rem;
+    }
+
+    .glass{
+      background:var(--glass);
+
+      border:1px solid rgba(255,255,255,.7);
+
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+
+      box-shadow:var(--shadow);
+
+      border-radius:var(--radius);
+    }
+
+
+    /* =========================================================
+       INTRODUCTION
+       ========================================================= */
+
+    .intro-panel{
+      max-width:800px;
+
+      margin:auto;
+
+      text-align:center;
+
+      padding:clamp(28px,6vw,65px);
+    }
+
+    .intro-panel p{
+
+      font-family:"Cormorant Garamond",serif;
+
+      font-size:1.3rem;
+
+      line-height:1.5;
+    }
+
+
+    /* =========================================================
+       SCRATCH CARD
+       ========================================================= */
+
+    #scratch .bg{
+      display:none;
+    }
+
+    #scratch .wash{
+      display:none;
+    }
+
+    .scratch-wrap{
+      max-width:760px;
+
+      margin:auto;
+
+      text-align:center;
+    }
+
+    .scratch-intro{
+      font-family:"Cormorant Garamond",serif;
+
+      margin-bottom:18px;
+    }
+
+    .scratch-intro .eyebrow{
+      margin-bottom:8px;
+    }
+
+    .scratch-intro h2{
+      font-size:clamp(2.3rem,6vw,4.2rem);
+
+      line-height:1;
+    }
+
+    .scratch-intro p{
+      margin:10px 0 0;
+
+      color:var(--muted);
+
+      font-size:1rem;
+    }
+
+    .scratch-card{
+
+      position:relative;
+
+      width:min(520px,88vw);
+
+      aspect-ratio:1/1;
+
+      margin:34px auto 20px;
+
+      overflow:hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fffaf5,
+          #f1e0d3
+        );
+
+      border:1px solid rgba(61,41,38,.12);
+
+      box-shadow:
+        0 18px 50px rgba(55,34,25,.14);
+
+      clip-path:polygon(
+        50% 94%,
+        42% 87%,
+        32% 79%,
+        22% 70%,
+        13% 61%,
+        7% 52%,
+        4% 42%,
+        5% 31%,
+        10% 21%,
+        18% 13%,
+        28% 9%,
+        38% 10%,
+        46% 15%,
+        50% 22%,
+        54% 15%,
+        62% 10%,
+        72% 9%,
+        82% 13%,
+        90% 21%,
+        95% 31%,
+        96% 42%,
+        93% 52%,
+        87% 61%,
+        78% 70%,
+        68% 79%,
+        58% 87%
+      );
+    }
+
+    #scratchCanvas{
+
+      position:absolute;
+
+      inset:0;
+
+      width:100%;
+      height:100%;
+
+      touch-action:none;
+
+      cursor:crosshair;
+    }
+
+    .reveal{
+
+      position:absolute;
+
+      inset:0;
+
+      display:grid;
+
+      place-items:center;
+
+      text-align:center;
+
+      padding:30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fffaf5,
+          #f4e7dc
+        );
+    }
+
+    .reveal small{
+
+      letter-spacing:.2em;
+
+      text-transform:uppercase;
+    }
+
+    .reveal strong{
+
+      display:block;
+
+      font-family:"Cormorant Garamond";
+
+      font-size:clamp(
+        2.7rem,
+        8vw,
+        5rem
+      );
+
+      margin-top:10px;
+    }
+
+
+    /* =========================================================
+       COUNTDOWN
+       ========================================================= */
+
+    .countdown{
+      text-align:center;
+    }
+
+    .countdown-grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(4,1fr);
+
+      gap:15px;
+
+      max-width:850px;
+
+      margin:35px auto;
+    }
+
+    .timebox{
+
+      padding:25px 10px;
+
+      border-radius:22px;
+
+      background:var(--glass);
+
+      border:1px solid rgba(255,255,255,.8);
+
+      box-shadow:var(--shadow);
+    }
+
+    .timebox strong{
+
+      display:block;
+
+      font-family:"Cormorant Garamond";
+
+      font-size:clamp(
+        2.4rem,
+        7vw,
+        4.5rem
+      );
+
+      font-weight:600;
+    }
+
+    .timebox span{
+
+      font-size:.68rem;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+
+      opacity:.7;
+    }
+
+
+    /* =========================================================
+       EVENTS
+       ========================================================= */
+
+    .event{
+
+      color:#fff;
+
+      height:100svh;
+
+      min-height:100svh;
+
+      padding:0;
+    }
+
+    .event-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      z-index:-3;
+    }
+
+    .event-nav{
+
+      position:fixed;
+
+      z-index:20;
+
+      left:50%;
+
+      bottom:18px;
+
+      transform:translateX(-50%);
+
+      display:flex;
+
+      gap:5px;
+
+      padding:6px;
+
+      border-radius:999px;
+
+      background:rgba(25,20,18,.78);
+
+      backdrop-filter:blur(14px);
+
+      -webkit-backdrop-filter:blur(14px);
+
+      box-shadow:
+        0 12px 35px rgba(0,0,0,.2);
+    }
+
+    .event-nav a{
+
+      color:#fff;
+
+      text-decoration:none;
+
+      font-size:.66rem;
+
+      letter-spacing:.08em;
+
+      padding:9px 11px;
+
+      border-radius:999px;
+
+      white-space:nowrap;
+    }
+
+    .event-nav a:hover,
+    .event-nav a.active{
+      background:rgba(255,255,255,.18);
+    }
+
+
+    /* =========================================================
+       GENERIC CONTENT
+       ========================================================= */
+
+    .two-col{
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:22px;
+
+      text-align:center;
+    }
+
+    .card{
+
+      padding:30px;
+
+      text-align:center;
+    }
+
+    .card p{
+
+      line-height:1.65;
+
+      color:var(--muted);
+    }
+
+    .form{
+
+      max-width:850px;
+
+      margin:auto;
+
+      padding:clamp(
+        25px,
+        5vw,
+        50px
+      );
+
+      text-align:left;
+    }
+
+    .fields{
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:15px;
+
+      text-align:left;
+    }
+
+    label{
+
+      display:block;
+
+      font-size:.78rem;
+
+      letter-spacing:.06em;
+
+      margin-bottom:7px;
+
+      text-align:left;
+    }
+
+    input,
+    select,
+    textarea{
+
+      width:100%;
+
+      border:1px solid var(--line);
+
+      border-radius:14px;
+
+      padding:13px 14px;
+
+      background:rgba(255,255,255,.7);
+
+      color:var(--ink);
+
+      outline:none;
+    }
+
+    textarea{
+
+      min-height:120px;
+
+      resize:vertical;
+    }
+
+    .full{
+      grid-column:1/-1;
+    }
+
+    .rsvp-submit{
+      text-align:center;
+    }
+
+    .btn{
+
+      border:0;
+
+      border-radius:999px;
+
+      padding:14px 24px;
+
+      background:var(--ink);
+
+      color:#fff;
+
+      cursor:pointer;
+
+      transition:
+        transform .2s,
+        opacity .2s;
+
+      margin-top:8px;
+    }
+
+    .btn:hover{
+
+      transform:translateY(-2px);
+
+      opacity:.9;
+    }
+
+    #venue .card{
+      text-align:center;
+    }
+
+    #venue .actions{
+      justify-content:center;
+    }
+
+    .map{
+
+      min-height:360px;
+
+      border-radius:25px;
+
+      overflow:hidden;
+
+      background:#e9dfd6;
+
+      box-shadow:var(--shadow);
+    }
+
+    .map iframe{
+
+      width:100%;
+
+      height:100%;
+
+      min-height:360px;
+
+      border:0;
+    }
+
+    .actions{
+
+      display:flex;
+
+      flex-wrap:wrap;
+
+      gap:10px;
+
+      margin-top:18px;
+    }
+
+    .actions .btn{
+
+      margin:0;
+
+      text-decoration:none;
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+    }
+
+    .btn.secondary{
+
+      background:transparent;
+
+      color:var(--ink);
+
+      border:1px solid var(--line);
+    }
+
+
+    /* =========================================================
+       FAQ
+       ========================================================= */
+
+    .faq{
+
+      max-width:850px;
+
+      margin:auto;
+    }
+
+    details{
+
+      background:rgba(255,255,255,.65);
+
+      border:1px solid var(--line);
+
+      border-radius:18px;
+
+      margin:10px 0;
+
+      padding:18px 20px;
+    }
+
+    summary{
+
+      cursor:pointer;
+
+      font-family:"Cormorant Garamond";
+
+      font-size:1.35rem;
+
+      font-weight:600;
+    }
+
+    details p{
+
+      color:var(--muted);
+
+      line-height:1.6;
+    }
+
+
+    /* =========================================================
+       GUESTBOOK
+       ========================================================= */
+
+    .guestbook-list{
+
+      display:grid;
+
+      gap:12px;
+
+      margin-top:25px;
+    }
+
+    .guest-message{
+
+      padding:20px;
+
+      border-radius:20px;
+
+      background:rgba(255,255,255,.65);
+
+      border:1px solid var(--line);
+    }
+
+    .guest-message strong{
+
+      font-family:"Cormorant Garamond";
+
+      font-size:1.3rem;
+    }
+
+    .guest-message p{
+
+      margin:8px 0 0;
+
+      color:var(--muted);
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .footer{
+
+      text-align:center;
+
+      display:block;
+
+      min-height:0 !important;
+
+      height:auto !important;
+
+      padding:90px 22px 0 !important;
+
+      margin:0 !important;
+
+      overflow:visible !important;
+    }
+
+    .footer .content{
+
+      width:min(1100px,100%);
+
+      margin:0 auto;
+
+      padding:0 !important;
+    }
+
+    .footer .names{
+
+      margin:0 !important;
+
+      padding:0 !important;
+    }
+
+    .footer .names{
+
+      font-family:"Cormorant Garamond";
+
+      font-size:clamp(
+        3rem,
+        9vw,
+        7rem
+      );
+    }
+
+
+    /* =========================================================
+       MUSIC
+       ========================================================= */
+
+    .music{
+
+      position:fixed;
+
+      right:18px;
+
+      top:18px;
+
+      z-index:30;
+
+      width:48px;
+
+      height:48px;
+
+      border-radius:50%;
+
+      border:1px solid rgba(255,255,255,.6);
+
+      background:rgba(20,16,14,.72);
+
+      color:#fff;
+
+      cursor:pointer;
+
+      backdrop-filter:blur(10px);
+    }
+
+
+    .reveal-toast{
+
+      margin-top:10px;
+
+      font-size:.85rem;
+
+      opacity:.75;
+    }
+
+    .success{
+
+      margin-top:12px;
+
+      color:#356b45;
+
+      display:none;
+    }
+
+    .sr-only{
+
+      position:absolute;
+
+      width:1px;
+
+      height:1px;
+
+      padding:0;
+
+      margin:-1px;
+
+      overflow:hidden;
+
+      clip:rect(0,0,0,0);
+
+      white-space:nowrap;
+
+      border:0;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media(max-width:800px){
+
+      .section{
+        padding:75px 16px;
+      }
+
+      .countdown-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .gallery{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .two-col{
+        grid-template-columns:1fr;
+      }
+
+      .fields{
+        grid-template-columns:1fr;
+      }
+
+      .full{
+        grid-column:auto;
+      }
+.event-nav{
+
+        max-width:
+          calc(100vw - 16px);
+
+        overflow-x:auto;
+
+        justify-content:flex-start;
+      }
+
+      .event-nav a{
+
+        font-size:.58rem;
+
+        padding:8px 9px;
+      }
+    }
+
+
+    @media(max-width:480px){
+.gallery{
+        gap:9px;
+      }
+
+      .timebox{
+        padding:20px 7px;
+      }
+    }
+
+
+    @media(prefers-reduced-motion:reduce){
+
+      *,
+      *::before,
+      *::after{
+
+        scroll-behavior:auto !important;
+
+        animation:none !important;
+
+        transition:none !important;
+      }
+    }
+
+
+    #thankyou{
+
+      min-height:0 !important;
+
+      height:auto !important;
+
+      margin:0 !important;
+
+      padding:90px 22px 0 !important;
+    }
+
+    main{
+
+      display:block;
+
+      margin:0;
+
+      padding:0;
+    }
+
+    body{
+
+      padding-bottom:0;
+
+      margin-bottom:0;
+    }
+
+  
+    .event{height:100svh;min-height:100svh;padding:0;background:#090707;color:#fff;}
+    .event-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;display:block;background:#090707;}
+    .story-section{background:linear-gradient(135deg,#fff8f2,#f4e8e1 48%,#eee0dc);text-align:center;}
+    .story-content{max-width:850px;}
+    .story-copy{max-width:760px;margin:28px auto 0;font-family:"Cormorant Garamond",serif;font-size:clamp(1.35rem,2.5vw,1.8rem);line-height:1.6;}
+    .gallery-section{background:#171012;color:#fff;min-height:100svh;}
+    .gallery-section .section-title{color:#fff;}
+    .gallery-carousel{position:relative;max-width:980px;margin:10px auto 0;overflow:hidden;border-radius:26px;touch-action:pan-y;}
+    .gallery-track{display:flex;transition:transform .65s cubic-bezier(.22,.61,.36,1);will-change:transform;}
+    .gallery-slide{min-width:100%;height:min(72vh,720px);margin:0;background:#090707;display:flex;align-items:center;justify-content:center;}
+    .gallery-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+    .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font-size:32px;line-height:1;cursor:pointer;z-index:3;}
+    .gallery-arrow.prev{left:16px}.gallery-arrow.next{right:16px}
+    .gallery-dots{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:7px;z-index:3;}
+    .gallery-dot{width:7px;height:7px;border:0;border-radius:50%;padding:0;background:rgba(255,255,255,.45);cursor:pointer;}
+    .gallery-dot.active{background:#fff;transform:scale(1.3);}
+    @media(max-width:700px){.gallery-slide{height:62vh}.gallery-arrow{width:40px;height:40px;font-size:27px}.gallery-arrow.prev{left:10px}.gallery-arrow.next{right:10px}}
+
+
+    /* =====================================================
+       DELHI × MUMBAI SIGNATURE DESIGN SYSTEM
+       Subtle city references: India Gate geometry, Mumbai
+       Art Deco lines, Marine Drive curves and a recurring D×M.
+       Event sections intentionally remain video-only.
+       ===================================================== */
+
+    :root{
+      --city-ink:#24161b;
+      --city-wine:#5b2435;
+      --city-gold:#c6a15b;
+      --city-cream:#fbf4ea;
+      --city-fade:rgba(91,36,53,.08);
+    }
+
+    body{
+      background:
+        radial-gradient(circle at 12% 10%, rgba(198,161,91,.08), transparent 24%),
+        radial-gradient(circle at 88% 28%, rgba(91,36,53,.06), transparent 25%),
+        var(--paper);
+    }
+
+    .section:not(.hero):not(.event){
+      background-image:
+        linear-gradient(rgba(255,248,242,.96),rgba(255,248,242,.96)),
+        repeating-linear-gradient(90deg, transparent 0 47px, rgba(91,36,53,.035) 47px 48px);
+    }
+
+    .section:not(.hero):not(.event)::before{
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      right:-170px;
+      top:-150px;
+      border:1px solid rgba(198,161,91,.24);
+      border-radius:50%;
+      box-shadow:
+        0 0 0 18px rgba(198,161,91,.035),
+        0 0 0 38px rgba(198,161,91,.025),
+        0 0 0 58px rgba(198,161,91,.018);
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .section:not(.hero):not(.event)::after{
+      content:"D  ×  M";
+      position:absolute;
+      left:-4px;
+      bottom:24px;
+      writing-mode:vertical-rl;
+      transform:rotate(180deg);
+      font-family:"DM Sans",sans-serif;
+      font-size:.58rem;
+      font-weight:700;
+      letter-spacing:.42em;
+      color:rgba(91,36,53,.30);
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .city-signature{
+      position:absolute;
+      top:24px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      align-items:center;
+      gap:13px;
+      white-space:nowrap;
+      font-size:.56rem;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:rgba(91,36,53,.62);
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .city-signature .city-dot{
+      width:5px;
+      height:5px;
+      border:1px solid var(--city-gold);
+      transform:rotate(45deg);
+      display:block;
+    }
+
+    .city-signature .route{
+      width:58px;
+      height:1px;
+      background:linear-gradient(90deg,var(--city-gold),rgba(198,161,91,.12));
+      position:relative;
+    }
+
+    .city-signature .route::after{
+      content:"";
+      position:absolute;
+      right:-1px;
+      top:-2px;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:var(--city-gold);
+    }
+
+    .city-ornament{
+      margin:25px auto 0;
+      width:min(420px,80vw);
+      height:38px;
+      position:relative;
+      opacity:.62;
+    }
+
+    .city-ornament::before{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      top:18px;
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--city-gold),transparent);
+    }
+
+    .city-ornament::after{
+      content:"◆  ◇  ◆";
+      position:absolute;
+      left:50%;
+      top:6px;
+      transform:translateX(-50%);
+      padding:0 12px;
+      background:var(--paper);
+      color:var(--city-gold);
+      font-size:.52rem;
+      letter-spacing:.28em;
+    }
+
+    .story-section{
+      min-height:88svh;
+      background-color:#fbf4ea;
+    }
+
+    .story-section .story-content{
+      position:relative;
+      text-align:center;
+      max-width:900px;
+    }
+
+    .story-section .story-content::before{
+      content:"DELHI";
+      position:absolute;
+      left:-90px;
+      top:10%;
+      font-size:clamp(4rem,13vw,9rem);
+      font-weight:700;
+      letter-spacing:.08em;
+      color:rgba(91,36,53,.035);
+      transform:rotate(-90deg);
+      transform-origin:center;
+      pointer-events:none;
+    }
+
+    .story-section .story-content::after{
+      content:"MUMBAI";
+      position:absolute;
+      right:-115px;
+      bottom:4%;
+      font-size:clamp(3.5rem,12vw,8rem);
+      font-weight:700;
+      letter-spacing:.08em;
+      color:rgba(198,161,91,.055);
+      transform:rotate(-90deg);
+      transform-origin:center;
+      pointer-events:none;
+    }
+
+    .story-copy{
+      max-width:720px;
+      margin:26px auto 0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(1.25rem,2.2vw,1.65rem);
+      line-height:1.65;
+      color:#563f3b;
+      position:relative;
+      z-index:1;
+    }
+
+    .city-route-card{
+      margin:34px auto 0;
+      width:min(700px,100%);
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:14px;
+      color:#5b2435;
+      font-size:.65rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+    }
+
+    .city-route-card .line{
+      height:1px;
+      background:linear-gradient(90deg,rgba(198,161,91,.15),var(--city-gold),rgba(198,161,91,.15));
+      position:relative;
+    }
+
+    .city-route-card .line::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:50%;
+      width:8px;
+      height:8px;
+      border:1px solid var(--city-gold);
+      background:var(--paper);
+      transform:translate(-50%,-50%) rotate(45deg);
+    }
+
+    .gallery-section{
+      background-color:#21171b !important;
+      background-image:
+        radial-gradient(circle at 50% 0,rgba(198,161,91,.12),transparent 34%),
+        repeating-linear-gradient(135deg,transparent 0 34px,rgba(255,255,255,.018) 34px 35px) !important;
+    }
+
+    .gallery-section .city-signature{color:rgba(255,248,242,.55)}
+    .gallery-section .city-signature .route{background:linear-gradient(90deg,var(--city-gold),rgba(198,161,91,.12));}
+    .gallery-section .section-title{position:relative;z-index:2}
+
+    .gallery-carousel{
+      border:1px solid rgba(198,161,91,.34) !important;
+      box-shadow:0 30px 90px rgba(0,0,0,.35),0 0 0 10px rgba(198,161,91,.035);
+    }
+
+    .gallery-carousel::before,
+    .gallery-carousel::after{
+      content:"";
+      position:absolute;
+      width:72px;
+      height:72px;
+      border-color:rgba(198,161,91,.55);
+      z-index:4;
+      pointer-events:none;
+    }
+
+    .gallery-carousel::before{left:12px;top:12px;border-left:1px solid;border-top:1px solid;}
+    .gallery-carousel::after{right:12px;bottom:12px;border-right:1px solid;border-bottom:1px solid;}
+
+    .city-chapter{
+      width:min(1000px,100%);
+      margin:0 auto 26px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      color:var(--city-gold);
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      font-size:.58rem;
+    }
+
+    .city-chapter span{
+      opacity:.72;
+    }
+
+    .city-chapter strong{
+      color:inherit;
+      font-weight:600;
+      font-size:.72rem;
+    }
+
+    .city-chapter i{
+      display:block;
+      width:70px;
+      height:1px;
+      background:linear-gradient(90deg,transparent,currentColor,transparent);
+    }
+
+    /* Event sections remain intentionally untouched: video only. */
+    .event{padding:0 !important;background:#090707 !important;}
+    .event .event-video{z-index:0;}
+
+    @media(max-width:700px){
+      .city-signature{top:16px;font-size:.48rem;gap:8px;letter-spacing:.18em}
+      .city-signature .route{width:30px}
+      .story-section .story-content::before{left:-54px;font-size:4rem}
+      .story-section .story-content::after{right:-65px;font-size:3.5rem}
+      .city-route-card{font-size:.5rem;gap:8px}
+      .city-chapter{gap:9px;font-size:.47rem;letter-spacing:.16em}
+      .city-chapter i{width:34px}
+    }
+
+</style>
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       MUSIC BUTTON
+       ===================================================== -->
+
+  <button
+    class="music"
+    id="musicBtn"
+    aria-label="Play wedding music"
+    title="Play music"
+  >
+    ♫
+  </button>
+
+
+  <audio
+    id="music"
+    loop
+    preload="auto"
+  ></audio>
+
+
+  <main>
+
+
+    <!-- =====================================================
+         HERO / INTRO VIDEO
+         All invitation text is part of the MP4 itself.
+         ===================================================== -->
+
+    <section
+      class="section hero"
+      id="home"
+    >
+
+      <video
+        class="intro-video"
+        id="introVideo"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+      >
+        <source
+          src="assets/intro-video.MP4"
+          type="video/mp4"
+        >
+      </video>
+
+      <div class="intro-video-overlay"></div>
+
+      <!-- TAP TO OPEN -->
+      <div
+        class="intro-open"
+        id="introOpen"
+        role="button"
+        tabindex="0"
+        aria-label="Tap anywhere to open invitation"
+      >
+        <div class="intro-open-pill">
+          Tap Anywhere to Open
+        </div>
+      </div>
+
+      <!-- SCROLL INDICATOR -->
+      <div
+        class="intro-scroll"
+        id="introScroll"
+        aria-hidden="true"
+      >
+        <div class="intro-scroll-label">
+          Scroll
+        </div>
+
+        <div class="intro-scroll-arrow">
+          ⌄
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DELHI × MUMBAI LOVE STORY
+         ===================================================== -->
+    <section class="section light story-section" id="story">
+      <div class="city-signature"><span>Delhi</span><span class="city-dot"></span><span class="route"></span><span>×</span><span class="route"></span><span class="city-dot"></span><span>Mumbai</span></div>
+      <div class="content story-content">
+        <div class="eyebrow">Delhi × Mumbai</div>
+        <h2 class="script">A love story between two cities</h2>
+        <div class="ornament">♥</div>
+        <div class="city-route-card"><span>DELHI</span><span class="line"></span><span>MUMBAI</span></div>
+        <p class="story-copy">
+          Two cities, two worlds, one beautiful story. From the energy of Delhi to the spirit of Mumbai, Mona and Sid found in each other the kind of love that makes every distance feel smaller. What began as a story of two people slowly became a story of two families, countless memories and a forever they cannot wait to begin.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PHOTO CAROUSEL
+         ===================================================== -->
+    <section class="section gallery-section" id="gallery">
+      <div class="city-signature"><span>Delhi</span><span class="city-dot"></span><span class="route"></span><span>×</span><span class="route"></span><span class="city-dot"></span><span>Mumbai</span></div>
+      <div class="content">
+        <div class="section-title">
+          <div class="eyebrow">Moments of us</div>
+          <h2 class="script">Five frames, one story</h2>
+          <div class="ornament">♥</div>
+        </div>
+        <div class="gallery-carousel" id="galleryCarousel">
+          <div class="gallery-track">
+            <figure class="gallery-slide is-active"><img src="assets/gallery/01.jpg" alt="Mona and Sid — photo 1"></figure>
+            <figure class="gallery-slide"><img src="assets/gallery/02.jpg" alt="Mona and Sid — photo 2"></figure>
+            <figure class="gallery-slide"><img src="assets/gallery/03.jpg" alt="Mona and Sid — photo 3"></figure>
+            <figure class="gallery-slide"><img src="assets/gallery/04.jpg" alt="Mona and Sid — photo 4"></figure>
+            <figure class="gallery-slide"><img src="assets/gallery/05.jpg" alt="Mona and Sid — photo 5"></figure>
+          </div>
+          <button class="gallery-arrow prev" type="button" aria-label="Previous photo">‹</button>
+          <button class="gallery-arrow next" type="button" aria-label="Next photo">›</button>
+          <div class="gallery-dots" aria-label="Photo navigation"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         SCRATCH CARD
+         ===================================================== -->
+
+    <section
+      class="section light"
+      id="scratch"
+    >
+      <div class="city-signature"><span>Delhi</span><span class="city-dot"></span><span class="route"></span><span>×</span><span class="route"></span><span class="city-dot"></span><span>Mumbai</span></div>
+
+      <div class="bg"></div>
+
+      <div class="wash"></div>
+
+
+      <div class="content scratch-wrap">
+
+
+        <div class="scratch-intro">
+
+          <div class="eyebrow">
+            A little surprise awaits
+          </div>
+
+          <h2 class="script">
+            Scratch to reveal the date
+          </h2>
+
+          <p>
+            Uncover the day we begin our forever.
+          </p>
+
+        </div>
+
+
+        <div
+          class="scratch-card"
+          id="scratchCard"
+        >
+
+          <div class="reveal">
+
+            <div>
+
+              <small>
+                The wedding date
+              </small>
+
+              <strong>
+                Date to be announced
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <canvas
+            id="scratchCanvas"
+            aria-label="Scratch card"
+          ></canvas>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COUNTDOWN
+         ===================================================== -->
+
+    <section
+      class="section light"
+      id="countdown"
+    >
+      <div class="city-signature"><span>Delhi</span><span class="city-dot"></span><span class="route"></span><span>×</span><span class="route"></span><span class="city-dot"></span><span>Mumbai</span></div>
+
+      <div class="content countdown">
+
+
+        <div class="section-title">
+
+          <div class="eyebrow">
+            The day is getting closer
+          </div>
+
+          <h2 class="script">
+            Counting Down to Forever
+          </h2>
+
+          <div class="ornament">
+            ♥
+          </div>
+
+        </div>
+
+
+        <div
+          class="countdown-grid"
+          aria-live="polite"
+        >
+
+          <div class="timebox">
+
+            <strong id="days">
+              00
+            </strong>
+
+            <span>
+              Days
+            </span>
+
+          </div>
+
+
+          <div class="timebox">
+
+            <strong id="hours">
+              00
+            </strong>
+
+            <span>
+              Hours
+            </span>
+
+          </div>
+
+
+          <div class="timebox">
+
+            <strong id="mins">
+              00
+            </strong>
+
+            <span>
+              Minutes
+            </span>
+
+          </div>
+
+
+          <div class="timebox">
+
+            <strong id="secs">
+              00
+            </strong>
+
+            <span>
+              Seconds
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <p
+          id="countdownDone"
+          style="
+            display:none;
+            font-family:'Cormorant Garamond';
+            font-size:2rem
+          "
+        >
+          Today, we begin forever.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EVENTS — VIDEO ONLY
+         ===================================================== -->
+
+    <div class="city-chapter"><i></i><span>the city chapter ends</span><strong>DELHI × MUMBAI → CORBETT</strong><span>the celebration begins</span><i></i></div>
+
+    <section class="section event" id="haldi">
+      <video class="event-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/events/haldi.mp4" type="video/mp4">
+      </video>
+    </section>
+
+    <section class="section event" id="engagement">
+      <video class="event-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/events/engagement.mp4" type="video/mp4">
+      </video>
+    </section>
+
+    <section class="section event" id="wedding">
+      <video class="event-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/events/wedding.mp4" type="video/mp4">
+      </video>
+    </section>
+
+    <section class="section event" id="reception">
+      <video class="event-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/events/reception.mp4" type="video/mp4">
+      </video>
+    </section>
+
+
+    <div class="city-chapter"><i></i><span>from the wild back to</span><strong>CORBETT → DELHI</strong><span>for the final celebration</span><i></i></div>
+
+    <!-- =====================================================
+         RSVP
+         ===================================================== -->
+
+    <section
+      class="section light"
+      id="rsvp"
+    >
+      <div class="city-signature"><span>Delhi</span><span class="city-dot"></span><span class="route"></span><span>×</span><span class="route"></span><span class="city-dot"></span><span>Mumbai</span></div>
+
+      <div class="content">
+
+
+        <div class="section-title">
+
+          <div class="eyebrow">
+            We'd love to celebrate with you
+          </div>
+
+          <h2 class="script">
+            RSVP
+          </h2>
+
+          <div class="ornament">
+            ♥
+          </div>
+
+        </div>
+
+
+        <form
+          class="form glass"
+          id="rsvpForm"
+        >
+
+          <div class="fields">
+
+
+            <div>
+
+              <label for="guestName">
+                Guest Name
+              </label>
+
+              <input
+                id="guestName"
+                required
+              >
+
+            </div>
+
+
+            <div>
+
+              <label for="phone">
+                Phone Number
+              </label>
+
+              <input
+                id="phone"
+                type="tel"
+                inputmode="tel"
+                required
+              >
+
+            </div>
+
+
+            <div>
+
+              <label for="guests">
+                Number of Guests
+              </label>
+
+              <input
+                id="guests"
+                type="number"
+                min="1"
+                max="20"
+                value="1"
+                required
+              >
+
+            </div>
+
+
+            <div>
+
+              <label for="attendance">
+                Attendance
+              </label>
+
+              <select
+                id="attendance"
+                required
+              >
+
+                <option value="">
+                  Select
+                </option>
+
+                <option>
+                  Joyfully Accepts
+                </option>
+
+                <option>
+                  Regretfully Declines
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="full">
+
+              <label for="message">
+                Message
+              </label>
+
+              <textarea
+                id="message"
+                placeholder="Leave a message for the couple"
+              ></textarea>
+
+            </div>
+
+
+            <div class="full rsvp-submit">
+
+              <button
+                class="btn"
+                type="submit"
+              >
+                Send RSVP
+              </button>
+
+              <div
+                class="success"
+                id="rsvpSuccess"
+              >
+                Thank you — your RSVP has been recorded
+                on this device.
+              </div>
+
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VENUE
+         ===================================================== -->
+
+    <section
+      class="section light"
+      id="venue"
+    >
+
+      <div class="content">
+
+
+        <div class="section-title">
+
+          <div class="eyebrow">
+            Join us in Jim Corbett
+          </div>
+
+          <h2 class="script">
+            Jim Corbett
+          </h2>
+
+          <div class="ornament">
+            ♥
+          </div>
+
+          <p>
+            Corbett Adventure Resort, Orchha-Jhansi Road,
+            Jim Corbett, Uttarakhand 472246
+          </p>
+
+        </div>
+
+
+        <div class="two-col">
+
+
+          <div class="card glass">
+
+            <h3>
+              Corbett Adventure Resort
+            </h3>
+
+            <p>
+              Corbett Adventure Resort, Orchha-Jhansi Road,
+              Jim Corbett, Uttarakhand 472246
+            </p>
+
+
+            <div class="actions">
+
+              <a
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                href="https://www.google.com/maps/search/?api=1&query=Corbett+Adventure+Resort+Bail+Parao+Fatehpur+Range+Uttarakhand"
+              >
+                Open in Maps ↗
+              </a>
+
+
+              <button
+                class="btn secondary"
+                id="copyAddress"
+              >
+                Copy Address
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="map">
+
+            <iframe
+              title="Corbett Adventure Resort map"
+              loading="lazy"
+              src="https://www.google.com/maps?q=Corbett%20Adventure%20Resort%2C%20Bail%20Parao%2C%20Fatehpur%20Range%2C%20Uttarakhand&output=embed"
+            ></iframe>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RECEPTION VENUE
+         ===================================================== -->
+    <section class="section light" id="receptionVenue">
+      <div class="city-signature"><span>Delhi</span><span class="city-dot"></span><span class="route"></span><span>×</span><span class="route"></span><span class="city-dot"></span><span>Delhi</span></div>
+      <div class="content">
+        <div class="section-title">
+          <div class="eyebrow">One more celebration</div>
+          <h2 class="script">Reception — Starline, Delhi</h2>
+          <div class="ornament">♥</div>
+          <p>Our final celebration takes us back to Delhi, where we would love to raise a glass and celebrate with you at Starline, Delhi.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         TRAVEL
+         ===================================================== -->
+
+    <section
+      class="section light"
+      id="travel"
+    >
+
+      <div class="content">
+
+
+        <div class="section-title">
+
+          <div class="eyebrow">
+            Getting there
+          </div>
+
+          <h2 class="script">
+            Travel &amp; Connectivity
+          </h2>
+
+          <div class="ornament">
+            ♥
+          </div>
+
+        </div>
+
+
+        <div class="two-col">
+
+
+          <article class="card glass">
+
+            <div class="eyebrow">
+              Jim Corbett · Nearest Airport
+            </div>
+
+            <h3>
+              Pantnagar Airport (PGH)
+            </h3>
+
+            <p>
+              Use the button below to open directions.
+            </p>
+
+            <a
+              class="btn"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Pantnagar+Airport"
+            >
+              Get Directions ↗
+            </a>
+
+          </article>
+
+
+          <article class="card glass">
+
+            <div class="eyebrow">
+              Jim Corbett · Nearest Railway Station
+            </div>
+
+            <h3>
+              Ramnagar Railway Station
+            </h3>
+
+            <p>
+              Use the button below to open directions.
+            </p>
+
+            <a
+              class="btn"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Ramnagar+Railway+Station"
+            >
+              Get Directions ↗
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         THANK YOU
+         ===================================================== -->
+
+    <section
+      class="section footer"
+      id="thankyou"
+    >
+
+      <div class="content">
+
+        <div class="eyebrow">
+          Until we meet in Delhi
+        </div>
+
+        <h2 class="script">
+          Thank You
+        </h2>
+
+        <div class="ornament">
+          ♥
+        </div>
+
+        <p
+          style="
+            font-family:'Cormorant Garamond';
+            font-size:1.5rem
+          "
+        >
+          We can't wait to celebrate with you.
+        </p>
+
+        <div class="names">
+          Mona & Sid
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
+  <script>
+
+  (() => {
+
+    const CONFIG = {
+
+      weddingDate:
+        "",
+
+      musicUrl:
+        "assets/hum-tum.mp3",
+
+      googleMapsEmbedUrl:
+        ""
+
+    };
+
+
+    /* =====================================================
+       COUNTDOWN
+       ===================================================== */
+
+    const target = CONFIG.weddingDate ? new Date(CONFIG.weddingDate).getTime() : null;
+
+
+    const pad = n =>
+      String(n).padStart(2,"0");
+
+
+    function tick(){
+
+      if(!target){
+        document.querySelector(".countdown-grid").style.display="none";
+        document.getElementById("countdownDone").style.display="block";
+        document.getElementById("countdownDone").textContent="Wedding date coming soon.";
+        return;
+      }
+
+      const diff = target - Date.now();
+
+
+      if(diff <= 0){
+
+        document
+          .querySelector(
+            ".countdown-grid"
+          )
+          .style.display = "none";
+
+
+        document
+          .getElementById(
+            "countdownDone"
+          )
+          .style.display = "block";
+
+
+        return;
+
+      }
+
+
+      const d =
+        Math.floor(
+          diff / 86400000
+        );
+
+
+      const h =
+        Math.floor(
+          diff % 86400000 /
+          3600000
+        );
+
+
+      const m =
+        Math.floor(
+          diff % 3600000 /
+          60000
+        );
+
+
+      const s =
+        Math.floor(
+          diff % 60000 /
+          1000
+        );
+
+
+      document
+        .getElementById("days")
+        .textContent = d;
+
+
+      document
+        .getElementById("hours")
+        .textContent = pad(h);
+
+
+      document
+        .getElementById("mins")
+        .textContent = pad(m);
+
+
+      document
+        .getElementById("secs")
+        .textContent = pad(s);
+
+    }
+
+
+    tick();
+
+    setInterval(
+      tick,
+      1000
+    );
+
+
+    /* =====================================================
+       SCRATCH CARD
+       ===================================================== */
+
+    const canvas =
+      document.getElementById(
+        "scratchCanvas"
+      );
+
+
+    const card =
+      document.getElementById(
+        "scratchCard"
+      );
+
+
+    const ctx =
+      canvas.getContext(
+        "2d",
+        {
+          willReadFrequently:true
+        }
+      );
+
+
+    let scratching = false;
+
+    let revealed = false;
+
+    let lastX = 0;
+
+    let lastY = 0;
+
+    let lastCheck = 0;
+
+
+    function resizeScratch(){
+
+      const r =
+        card.getBoundingClientRect();
+
+
+      const dpr =
+        Math.min(
+          devicePixelRatio || 1,
+          2
+        );
+
+
+      canvas.width =
+        r.width * dpr;
+
+
+      canvas.height =
+        r.height * dpr;
+
+
+      canvas.style.width =
+        r.width + "px";
+
+
+      canvas.style.height =
+        r.height + "px";
+
+
+      ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+      );
+
+
+      ctx.globalCompositeOperation =
+        "source-over";
+
+
+      const g =
+        ctx.createLinearGradient(
+          0,
+          0,
+          r.width,
+          r.height
+        );
+
+
+      g.addColorStop(
+        0,
+        "#cbb6a5"
+      );
+
+
+      g.addColorStop(
+        .5,
+        "#b89b87"
+      );
+
+
+      g.addColorStop(
+        1,
+        "#d4c1b3"
+      );
+
+
+      ctx.fillStyle = g;
+
+
+      ctx.fillRect(
+        0,
+        0,
+        r.width,
+        r.height
+      );
+
+
+      ctx.fillStyle =
+        "rgba(255,248,238,.94)";
+
+
+      ctx.font =
+        "600 15px DM Sans";
+
+
+      ctx.textAlign =
+        "center";
+
+
+      ctx.fillText(
+        "SCRATCH TO REVEAL",
+        r.width / 2,
+        r.height / 2 - 4
+      );
+
+
+      ctx.font =
+        "400 12px DM Sans";
+
+
+      ctx.fillStyle =
+        "rgba(255,255,255,.68)";
+
+
+      ctx.fillText(
+        "a little surprise awaits",
+        r.width / 2,
+        r.height / 2 + 19
+      );
+
+    }
+
+
+    function eraseTo(x,y){
+
+      ctx.globalCompositeOperation =
+        "destination-out";
+
+
+      ctx.lineCap =
+        "round";
+
+
+      ctx.lineJoin =
+        "round";
+
+
+      ctx.lineWidth =
+        54;
+
+
+      ctx.beginPath();
+
+
+      ctx.moveTo(
+        lastX,
+        lastY
+      );
+
+
+      ctx.lineTo(
+        x,
+        y
+      );
+
+
+      ctx.stroke();
+
+
+      ctx.beginPath();
+
+
+      ctx.arc(
+        x,
+        y,
+        27,
+        0,
+        Math.PI * 2
+      );
+
+
+      ctx.fill();
+
+
+      lastX = x;
+
+      lastY = y;
+
+    }
+
+
+    function scratch(e){
+
+      if(revealed){
+        return;
+      }
+
+
+      const r =
+        canvas.getBoundingClientRect();
+
+
+      const x =
+        e.clientX - r.left;
+
+
+      const y =
+        e.clientY - r.top;
+
+
+      if(!scratching){
+
+        lastX = x;
+
+        lastY = y;
+
+      }
+
+
+      eraseTo(
+        x,
+        y
+      );
+
+
+      const now =
+        performance.now();
+
+
+      if(
+        now - lastCheck > 140
+      ){
+
+        lastCheck = now;
+
+        checkScratch();
+
+      }
+
+    }
+
+
+    function checkScratch(){
+
+      const d =
+        ctx.getImageData(
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        ).data;
+
+
+      let clear = 0;
+
+      let total = 0;
+
+
+      for(
+        let i = 3;
+        i < d.length;
+        i += 16
+      ){
+
+        total++;
+
+
+        if(d[i] < 20){
+          clear++;
+        }
+
+      }
+
+
+      if(
+        clear / total >= .45
+      ){
+
+        revealed = true;
+
+        card.classList.add(
+          "revealed"
+        );
+
+
+        canvas.style.transition =
+          "opacity .35s ease";
+
+
+        canvas.style.opacity =
+          "0";
+
+
+        canvas.style.pointerEvents =
+          "none";
+
+      }
+
+    }
+
+
+    canvas.addEventListener(
+      "pointerdown",
+      e => {
+
+        e.preventDefault();
+
+        scratching = true;
+
+
+        canvas.setPointerCapture?.(
+          e.pointerId
+        );
+
+
+        scratch(e);
+
+      }
+    );
+
+
+    canvas.addEventListener(
+      "pointermove",
+      e => {
+
+        if(scratching){
+
+          e.preventDefault();
+
+          scratch(e);
+
+        }
+
+      }
+    );
+
+
+    canvas.addEventListener(
+      "pointerup",
+      () => {
+
+        scratching = false;
+
+      }
+    );
+
+
+    canvas.addEventListener(
+      "pointercancel",
+      () => {
+
+        scratching = false;
+
+      }
+    );
+
+
+    window.addEventListener(
+      "resize",
+      resizeScratch
+    );
+
+
+    resizeScratch();
+
+
+    /* =====================================================
+       RSVP
+       ===================================================== */
+
+    document
+      .getElementById("rsvpForm")
+      .addEventListener(
+        "submit",
+        e => {
+
+          e.preventDefault();
+
+
+          const data = {
+
+            name:
+              document
+                .getElementById(
+                  "guestName"
+                )
+                .value,
+
+
+            phone:
+              document
+                .getElementById(
+                  "phone"
+                )
+                .value,
+
+
+            guests:
+              document
+                .getElementById(
+                  "guests"
+                )
+                .value,
+
+
+            attendance:
+              document
+                .getElementById(
+                  "attendance"
+                )
+                .value,
+
+
+            message:
+              document
+                .getElementById(
+                  "message"
+                )
+                .value,
+
+
+            savedAt:
+              new Date()
+                .toISOString()
+
+          };
+
+
+          localStorage.setItem(
+            "shiniPiyushRSVP",
+            JSON.stringify(data)
+          );
+
+
+          document
+            .getElementById(
+              "rsvpSuccess"
+            )
+            .style.display = "block";
+
+        }
+      );
+
+
+    /* =====================================================
+       COPY ADDRESS
+       ===================================================== */
+
+    document
+      .getElementById("copyAddress")
+      .addEventListener(
+        "click",
+        async () => {
+
+          const address =
+            "Corbett Adventure Resort, Jim Corbett, Uttarakhand";
+
+
+          try{
+
+            await navigator
+              .clipboard
+              .writeText(address);
+
+
+            alert(
+              "Address copied."
+            );
+
+
+          }catch{
+
+            alert(address);
+
+          }
+
+        }
+      );
+
+
+    /* =====================================================
+       MUSIC
+       ===================================================== */
+
+    const music =
+      document.getElementById(
+        "music"
+      );
+
+
+    const musicBtn =
+      document.getElementById(
+        "musicBtn"
+      );
+
+
+    if(CONFIG.musicUrl){
+
+      music.src =
+        CONFIG.musicUrl;
+
+    }
+
+
+    function setMusicUI(
+      playing
+    ){
+
+      musicBtn.textContent =
+        playing
+          ? "❚❚"
+          : "♫";
+
+
+      musicBtn.setAttribute(
+        "aria-label",
+        playing
+          ? "Pause wedding music"
+          : "Play wedding music"
+      );
+
+
+      musicBtn.setAttribute(
+        "title",
+        playing
+          ? "Pause music"
+          : "Play music"
+      );
+
+    }
+
+
+    async function startMusic(){
+
+      if(
+        !CONFIG.musicUrl ||
+        !music.paused
+      ){
+
+        return true;
+
+      }
+
+
+      try{
+
+        await music.play();
+
+        setMusicUI(true);
+
+        return true;
+
+      }catch(err){
+
+        return false;
+
+      }
+
+    }
+
+
+    startMusic();
+
+
+    /* =====================================================
+       INTRO VIDEO / OPEN FLOW
+       The intro MP4 contains all invitation text.
+       ===================================================== */
+
+    const introVideo =
+      document.getElementById(
+        "introVideo"
+      );
+
+    const introOpen =
+      document.getElementById(
+        "introOpen"
+      );
+
+    const introScroll =
+      document.getElementById(
+        "introScroll"
+      );
+
+    let introFinished = false;
+
+    function openInvitation(){
+
+      if(introOpen){
+
+        introOpen.classList.add(
+          "hidden"
+        );
+
+      }
+
+      startMusic();
+
+      if(
+        introVideo &&
+        introVideo.paused
+      ){
+
+        introVideo
+          .play()
+          .catch(() => {});
+
+      }
+
+    }
+
+    introOpen?.addEventListener(
+      "pointerdown",
+      openInvitation
+    );
+
+    introOpen?.addEventListener(
+      "keydown",
+      e => {
+
+        if(
+          e.key === "Enter" ||
+          e.key === " "
+        ){
+
+          e.preventDefault();
+
+          openInvitation();
+
+        }
+
+      }
+    );
+
+    /*
+      When the intro video finishes, show the existing
+      Scroll + downward arrow indicator.
+    */
+    introVideo?.addEventListener(
+      "ended",
+      () => {
+
+        introFinished = true;
+
+        introScroll?.classList.add(
+          "show"
+        );
+
+      }
+    );
+
+    introVideo?.addEventListener(
+      "error",
+      () => {
+
+        /*
+          If the MP4 cannot load, still leave the page usable.
+          The scroll indicator appears after a short delay.
+        */
+        setTimeout(
+          () => {
+
+            introScroll?.classList.add(
+              "show"
+            );
+
+          },
+          2500
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       EVENT VIDEOS
+       Keep every event slide as MP4-only, muted, inline video.
+       ===================================================== */
+
+    const eventVideos =
+      document.querySelectorAll(
+        ".event-video"
+      );
+
+    function playEventVideos(){
+
+      eventVideos.forEach(
+        video => {
+
+          video.play().catch(
+            () => {}
+          );
+
+        }
+      );
+
+    }
+
+    playEventVideos();
+
+    /* =====================================================
+       FIRST INTERACTION / MUSIC
+       ===================================================== */
+
+    function firstInteraction(){
+
+      startMusic().then(
+        started => {
+
+          if(started){
+
+            document.removeEventListener(
+              "pointerdown",
+              firstInteraction,
+              true
+            );
+
+          }
+
+        }
+      );
+
+    }
+
+
+    document.addEventListener(
+      "pointerdown",
+      firstInteraction,
+      true
+    );
+
+
+    function firstKeyInteraction(){
+
+      startMusic().then(
+        started => {
+
+          if(started){
+
+            document.removeEventListener(
+              "keydown",
+              firstKeyInteraction,
+              true
+            );
+
+          }
+
+        }
+      );
+
+    }
+
+
+    document.addEventListener(
+      "keydown",
+      firstKeyInteraction,
+      true
+    );
+
+
+    /* =====================================================
+       MUSIC BUTTON
+       ===================================================== */
+
+    musicBtn.addEventListener(
+      "click",
+      async () => {
+
+        if(!CONFIG.musicUrl){
+          return;
+        }
+
+
+        if(music.paused){
+
+          await startMusic();
+
+        }else{
+
+          music.pause();
+
+          setMusicUI(false);
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       SCROLL REVEAL
+       ===================================================== */
+
+    const io =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            e => {
+
+              if(e.isIntersecting){
+
+                e.target.animate(
+                  [
+                    {
+                      opacity:0,
+
+                      transform:
+                        "translateY(22px)"
+                    },
+
+                    {
+                      opacity:1,
+
+                      transform:
+                        "translateY(0)"
+                    }
+                  ],
+                  {
+                    duration:700,
+
+                    easing:
+                      "cubic-bezier(.2,.7,.2,1)",
+
+                    fill:"both"
+                  }
+                );
+
+
+                io.unobserve(
+                  e.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold:.12
+        }
+      );
+
+
+    document
+      .querySelectorAll(
+        ".event-card,.card,.timeline-item,.form,.section-title"
+      )
+      .forEach(
+        el =>
+          io.observe(el)
+      );
+
+
+    /* =====================================================
+       OPTIONAL GOOGLE MAPS CONFIGURATION
+       ===================================================== */
+
+    if(
+      CONFIG.googleMapsEmbedUrl
+    ){
+
+      document
+        .querySelector(
+          ".map iframe"
+        )
+        .src =
+          CONFIG.googleMapsEmbedUrl;
+
+    }
+
+  })();
+
+  </script>
+
+</body>
+</html>
